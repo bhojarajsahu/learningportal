@@ -21,7 +21,6 @@ const Header = () => {
     { name: 'Intermediate', href: '/intermediate' },
     { name: 'Advanced', href: '/advanced' },
     { name: 'Playground', href: '/playground' },
-    { name: 'Forum', href: '/forum' },
   ];
 
   return (
