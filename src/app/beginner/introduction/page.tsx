@@ -204,6 +204,78 @@ export default function IntroductionPage() {
           Click the "Setting Up Your Environment" link below to proceed to the next lesson.
         </p>
       </div>
+
+      <nav className="menu">
+        <a href="#home" className="menu-item active">Home</a>
+        <a href="#about" className="menu-item">About</a>
+        <a href="#services" className="menu-item">Services</a>
+        <a href="#contact" className="menu-item">Contact</a>
+      </nav>
     </LessonLayout>
   );
+} 
+
+/* Modern Menu Styles */
+.menu {
+    display: flex;
+    justify-content: space-around; /* Distributes menu items evenly */
+    background-color: #333; /* Dark background for contrast */
+    padding: 15px 0; /* Padding for spacing */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.menu-item {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Padding for clickable area */
+    position: relative; /* Position for the underline effect */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.menu-item:hover {
+    color: #ffcc00; /* Change text color on hover */
+}
+
+/* Underline effect for active menu item */
+.menu-item.active {
+    color: #ffcc00; /* Highlight active menu item */
+}
+
+.menu-item.active::after {
+    content: ''; /* Create a pseudo-element for the underline */
+    display: block;
+    width: 100%; /* Full width of the menu item */
+    height: 2px; /* Thickness of the underline */
+    background-color: #ffcc00; /* Color of the underline */
+    position: absolute; /* Position it relative to the menu item */
+    bottom: -5px; /* Position it below the text */
+    left: 0; /* Align to the left */
+}
+
+.menu-item:hover::after {
+    background-color: #ffcc00; /* Keep the underline color on hover */
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+} 
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .navbar {
+        flex-direction: column;
+    }
 } 
