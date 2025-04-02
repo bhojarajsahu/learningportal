@@ -31,7 +31,7 @@ export default function Home() {
                 <div className="mt-4 animate-pulse">
                   <code className="text-sm md:text-base bg-white/90 dark:bg-gray-800/90 px-4 py-2 rounded-md shadow-md">
                     Console.WriteLine("Hello, World!");
-                  </code>
+            </code>
                 </div>
               </div>
             </div>
