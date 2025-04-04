@@ -225,7 +225,7 @@ class Program
         var productInfos = products.Select(p => new { p.Name, p.Price });
         foreach (var info in productInfos)
         {
-            Console.WriteLine($"{info.Name}: ${info.Price}");
+            Console.WriteLine(info.Name + ": $" + info.Price);
         }
         
         // Projection with transformation
@@ -255,7 +255,7 @@ class Program
             );
         foreach (var item in productsWithCategories)
         {
-            Console.WriteLine($"{item.ProductName} ({item.CategoryName}): ${item.Price}");
+            Console.WriteLine(item.ProductName + " (" + item.CategoryName + "): $" + item.Price);
         }
         
         // Group Join
@@ -272,10 +272,10 @@ class Program
             );
         foreach (var category in categoriesWithProducts)
         {
-            Console.WriteLine($"{category.CategoryName} ({category.Products.Count} products):");
+            Console.WriteLine(category.CategoryName + " (" + category.Products.Count + " products):");
             foreach (var product in category.Products)
             {
-                Console.WriteLine($"  - {product.Name}: ${product.Price}");
+                Console.WriteLine("  - " + product.Name + ": $" + product.Price);
             }
         }
         
@@ -301,7 +301,7 @@ class Program
             );
         foreach (var item in leftJoin)
         {
-            Console.WriteLine($"{item.ProductName} ({item.CategoryName}): ${item.Price}");
+            Console.WriteLine(item.ProductName + " (" + item.CategoryName + "): $" + item.Price);
         }
         
         Console.ReadKey();
@@ -340,26 +340,26 @@ class Program
         
         // Simple aggregation functions
         Console.WriteLine("Aggregation examples:");
-        Console.WriteLine($"Total number of products: {products.Count()}");
-        Console.WriteLine($"Number of electronics: {products.Count(p => p.Category == \\"Electronics\\")}");
-        Console.WriteLine($"Average price: ${products.Average(p => p.Price):F2}");
-        Console.WriteLine($"Total inventory value: ${products.Sum(p => p.Price * p.Stock):F2}");
-        Console.WriteLine($"Lowest price: ${products.Min(p => p.Price)}");
-        Console.WriteLine($"Highest price: ${products.Max(p => p.Price)}");
+        Console.WriteLine("Total number of products: " + products.Count());
+        Console.WriteLine("Number of electronics: " + products.Count(p => p.Category == "Electronics"));
+        Console.WriteLine("Average price: $" + products.Average(p => p.Price).ToString("F2"));
+        Console.WriteLine("Total inventory value: $" + products.Sum(p => p.Price * p.Stock).ToString("F2"));
+        Console.WriteLine("Lowest price: $" + products.Min(p => p.Price));
+        Console.WriteLine("Highest price: $" + products.Max(p => p.Price));
         
         // Finding items
         Console.WriteLine("\\nFound items:");
         Product cheapest = products.OrderBy(p => p.Price).First();
-        Console.WriteLine($"Cheapest product: {cheapest.Name} (${cheapest.Price})");
+        Console.WriteLine("Cheapest product: " + cheapest.Name + " ($" + cheapest.Price + ")");
         
         Product mostExpensive = products.OrderByDescending(p => p.Price).First();
-        Console.WriteLine($"Most expensive product: {mostExpensive.Name} (${mostExpensive.Price})");
+        Console.WriteLine("Most expensive product: " + mostExpensive.Name + " ($" + mostExpensive.Price + ")");
         
         // FirstOrDefault for potentially empty results
         Product expensiveBook = products
-            .Where(p => p.Category == \\"Books\\" && p.Price > 100)
+            .Where(p => p.Category == "Books" && p.Price > 100)
             .FirstOrDefault();
-        Console.WriteLine($"Expensive book: {(expensiveBook != null ? expensiveBook.Name : \\"None found\\")}");
+        Console.WriteLine("Expensive book: " + (expensiveBook != null ? expensiveBook.Name : "None found"));
         
         // Grouping
         Console.WriteLine("\\nProducts grouped by category:");
@@ -367,16 +367,16 @@ class Program
         
         foreach (var group in groupedByCategory)
         {
-            Console.WriteLine($"{group.Key} ({group.Count()} products):");
+            Console.WriteLine(group.Key + " (" + group.Count() + " products):");
             
             foreach (var product in group)
             {
-                Console.WriteLine($"  - {product.Name}: ${product.Price}");
+                Console.WriteLine("  - " + product.Name + ": $" + product.Price);
             }
             
             // Aggregations within groups
-            Console.WriteLine($"  Average price: ${group.Average(p => p.Price):F2}");
-            Console.WriteLine($"  Total value: ${group.Sum(p => p.Price * p.Stock):F2}");
+            Console.WriteLine("  Average price: $" + group.Average(p => p.Price).ToString("F2"));
+            Console.WriteLine("  Total value: $" + group.Sum(p => p.Price * p.Stock).ToString("F2"));
             Console.WriteLine();
         }
         
@@ -394,11 +394,11 @@ class Program
         
         foreach (var summary in categorySummary)
         {
-            Console.WriteLine($"{summary.Category}:");
-            Console.WriteLine($"  Count: {summary.ProductCount}");
-            Console.WriteLine($"  Avg Price: ${summary.AveragePrice:F2}");
-            Console.WriteLine($"  Total Stock: {summary.TotalStock}");
-            Console.WriteLine($"  Total Value: ${summary.TotalValue:F2}");
+            Console.WriteLine(summary.Category + ":");
+            Console.WriteLine("  Count: " + summary.ProductCount);
+            Console.WriteLine("  Avg Price: $" + summary.AveragePrice.ToString("F2"));
+            Console.WriteLine("  Total Stock: " + summary.TotalStock);
+            Console.WriteLine("  Total Value: $" + summary.TotalValue.ToString("F2"));
         }
         
         Console.ReadKey();

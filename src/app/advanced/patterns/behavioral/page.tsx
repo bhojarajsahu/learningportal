@@ -179,7 +179,7 @@ namespace DesignPatterns.Behavioral
         public void Pay(decimal amount)
         {
             string maskedCard = $"XXXX-XXXX-XXXX-{_cardNumber.Substring(_cardNumber.Length - 4)}";
-            Console.WriteLine($"Paid ${amount} using Credit Card: {maskedCard}");
+            Console.WriteLine("Paid $" + amount + " using Credit Card: " + maskedCard);
         }
     }
     
@@ -196,7 +196,7 @@ namespace DesignPatterns.Behavioral
         
         public void Pay(decimal amount)
         {
-            Console.WriteLine($"Paid ${amount} using PayPal account: {_email}");
+            Console.WriteLine("Paid $" + amount + " using PayPal account: " + _email);
         }
     }
     
@@ -211,7 +211,7 @@ namespace DesignPatterns.Behavioral
         
         public void Pay(decimal amount)
         {
-            Console.WriteLine($"Paid ${amount} worth of Bitcoin to address: {_address}");
+            Console.WriteLine("Paid $" + amount + " worth of Bitcoin to address: " + _address);
         }
     }
     
@@ -229,7 +229,7 @@ namespace DesignPatterns.Behavioral
         public void AddItem(string item, decimal price)
         {
             _total += price;
-            Console.WriteLine($"Added item: {item}, Price: ${price}, Total: ${_total}");
+            Console.WriteLine("Added item: " + item + ", Price: $" + price + ", Total: $" + _total);
         }
         
         public void Checkout()
