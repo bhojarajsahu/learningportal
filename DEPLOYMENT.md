@@ -20,6 +20,7 @@ This will generate a static version of your site in the `out` directory.
 - Images and other static files
 - `.htaccess` file for Apache configuration
 - `README.md` with deployment instructions
+- SEO assets (robots.txt, sitemap.xml, JSON-LD scripts)
 
 ## Deployment Options
 
@@ -39,7 +40,7 @@ This will generate a static version of your site in the `out` directory.
 ```nginx
 server {
     listen 80;
-    server_name yourdomain.com;
+    server_name cs.mylearningtech.com;
     root /path/to/your/files;
     index index.html;
 
@@ -107,6 +108,49 @@ The contact form in this static version has been modified to use [Formspree](htt
 
 This static version does not support server-side functionality or API routes. All dynamic functionality has been configured to work in a client-side only environment.
 
+## SEO Considerations
+
+The static export includes several SEO enhancements that need to be properly configured:
+
+### 1. Update the Sitemap
+
+Edit `sitemap.xml` and replace all instances of `https://cs.mylearningtech.com` with your actual domain name.
+
+### 2. Include SEO Scripts
+
+Make sure to include the SEO-related JavaScript files in your HTML pages. Add the following to the bottom of your HTML files (before the closing `</body>` tag):
+
+```html
+<script src="/jsonld-metadata.js"></script>
+```
+
+And add this to the `<head>` section:
+
+```html
+<script src="/meta-tags.js"></script>
+```
+
+### 3. Create Custom Open Graph Images
+
+For better social media sharing, create custom Open Graph images:
+
+1. Create a default image (1200x630px) for social media sharing
+2. Save it as `og-image.png` in the root directory
+3. Update the image URL in `meta-tags.js` if you're using a different filename or location
+
+### 4. Register with Search Consoles
+
+After deployment, register your site with:
+- [Google Search Console](https://search.google.com/search-console)
+- [Bing Webmaster Tools](https://www.bing.com/webmasters)
+- [Yandex Webmaster](https://webmaster.yandex.com)
+
+Upload the provided sitemap.xml to each service.
+
+### 5. Analytics Integration
+
+Consider adding Google Analytics or another analytics solution to track user behavior.
+
 ## Testing Your Deployment
 
 After deploying, make sure to verify that:
@@ -116,12 +160,23 @@ After deploying, make sure to verify that:
 3. The contact form submits properly
 4. All JavaScript functionality works
 5. The site is responsive and displays correctly on different devices
+6. SEO elements are properly loaded (use tools like Google's Rich Results Test)
+
+## SEO Testing
+
+After deployment, use these tools to verify your SEO implementation:
+
+1. [Google Rich Results Test](https://search.google.com/test/rich-results)
+2. [Google Mobile-Friendly Test](https://search.google.com/test/mobile-friendly)
+3. [Google PageSpeed Insights](https://pagespeed.web.dev/)
+4. [Bing URL Inspection Tool](https://www.bing.com/webmasters/tools/contentremoval)
 
 ## Troubleshooting
 
 - **404 Errors**: Make sure your server is configured to handle client-side routing. The `.htaccess` file or Nginx configuration should handle this.
 - **Missing Assets**: Ensure that all files from the `out` directory were uploaded, including the `_next` directory.
 - **Form Submission Issues**: Verify that you've correctly set up Formspree or another form handling service.
+- **SEO Schema Errors**: Use the [Schema Markup Validator](https://validator.schema.org/) to test your JSON-LD implementation.
 
 ## Support
 
