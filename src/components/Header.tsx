@@ -43,7 +43,7 @@ const Header = () => {
                   href={item.href}
                   className={`${
                     pathname === item.href
-                      ? 'nav-link-active'
+                      ? 'nav-link-active rounded-md p-1'
                       : 'nav-link'
                   }`}
                 >
