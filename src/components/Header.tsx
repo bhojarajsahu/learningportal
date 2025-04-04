@@ -30,7 +30,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <span className="text-2xl font-bold bg-gradient-to-r from-csharp-blue-500 to-csharp-purple-500 text-transparent bg-clip-text">C# Learning</span>
+                <span className="text-3xl font-bold bg-gradient-to-r from-csharp-blue-500 to-csharp-purple-500 text-transparent bg-clip-text">C# Learning</span>
               </div>
             </Link>
           </div>

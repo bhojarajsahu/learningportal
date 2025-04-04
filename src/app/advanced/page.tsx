@@ -1,11 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import { FiCloud, FiCpu, FiGitMerge, FiLock, FiServer, FiZap } from 'react-icons/fi';
+import { FiZap, FiCode, FiShield, FiCloud, FiDatabase, FiCpu } from 'react-icons/fi';
 
 const advancedModules = [
   {
     title: 'Asynchronous Programming',
-    description: 'Master async/await patterns and parallel programming in C#.',
+    description: 'Master advanced asynchronous programming techniques in C# for building responsive and scalable applications.',
     icon: FiZap,
     lessons: [
       { title: 'Async/Await Fundamentals', link: '/advanced/async/basics' },
@@ -16,8 +16,8 @@ const advancedModules = [
   },
   {
     title: 'Design Patterns',
-    description: 'Learn and implement common design patterns in C# applications.',
-    icon: FiGitMerge,
+    description: 'Learn essential design patterns to solve common software design problems in elegant and maintainable ways.',
+    icon: FiCode,
     lessons: [
       { title: 'Creational Patterns', link: '/advanced/patterns/creational' },
       { title: 'Structural Patterns', link: '/advanced/patterns/structural' },
@@ -25,43 +25,33 @@ const advancedModules = [
     ],
   },
   {
+    title: 'Security',
+    description: 'Implement robust security practices in your C# applications to protect data and prevent common vulnerabilities.',
+    icon: FiShield,
+    lessons: [
+      { title: 'Authentication & Authorization', link: '/advanced/security/authentication' },
+      { title: 'Common Vulnerabilities', link: '/advanced/security/vulnerabilities' },
+      { title: 'Data Protection', link: '/advanced/security/data-protection' },
+    ],
+  },
+  {
     title: 'Cloud Development',
-    description: 'Build and deploy cloud-native applications using Azure services.',
+    description: 'Build scalable cloud-native applications using C# and Azure services.',
     icon: FiCloud,
     lessons: [
-      { title: 'Azure Fundamentals', link: '/advanced/cloud/azure-basics' },
+      { title: 'Azure Fundamentals', link: '/advanced/cloud/azure' },
       { title: 'Microservices Architecture', link: '/advanced/cloud/microservices' },
       { title: 'Containerization with Docker', link: '/advanced/cloud/docker' },
     ],
   },
   {
     title: 'Performance Optimization',
-    description: 'Optimize your C# applications for better performance and scalability.',
+    description: 'Optimize your C# applications for better performance, scalability, and resource utilization.',
     icon: FiCpu,
     lessons: [
       { title: 'Memory Management', link: '/advanced/performance/memory' },
       { title: 'Profiling and Diagnostics', link: '/advanced/performance/profiling' },
       { title: 'Caching Strategies', link: '/advanced/performance/caching' },
-    ],
-  },
-  {
-    title: 'Security Best Practices',
-    description: 'Implement security measures and protect your C# applications.',
-    icon: FiLock,
-    lessons: [
-      { title: 'Authentication and Authorization', link: '/advanced/security/auth' },
-      { title: 'Data Protection', link: '/advanced/security/data-protection' },
-      { title: 'Security Vulnerabilities', link: '/advanced/security/vulnerabilities' },
-    ],
-  },
-  {
-    title: 'Enterprise Architecture',
-    description: 'Design and implement enterprise-level C# applications.',
-    icon: FiServer,
-    lessons: [
-      { title: 'Clean Architecture', link: '/advanced/enterprise/clean-architecture' },
-      { title: 'Domain-Driven Design', link: '/advanced/enterprise/ddd' },
-      { title: 'Event Sourcing', link: '/advanced/enterprise/event-sourcing' },
     ],
   },
 ];
@@ -74,7 +64,7 @@ export default function AdvancedPage() {
           Advanced C# Programming
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-          Dive deep into advanced C# concepts and enterprise-level development practices.
+          Take your C# expertise to the professional level with advanced concepts and best practices.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

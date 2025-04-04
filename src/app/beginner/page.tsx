@@ -2,119 +2,121 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { FiArrowRight, FiBook, FiCode, FiCpu, FiDatabase } from 'react-icons/fi';
+import { FiCode, FiBox, FiList, FiGitBranch, FiFileText, FiLayout } from 'react-icons/fi';
 
 const beginnerModules = [
   {
-    title: 'Getting Started',
-    description: 'Learn about C# and set up your development environment',
-    icon: <FiBook className="h-8 w-8 text-csharp-blue-500" />,
+    title: 'C# Fundamentals',
+    description: 'Learn the core concepts of C# programming including syntax, variables, and control flow.',
+    icon: FiCode,
     lessons: [
-      { title: 'Introduction to C#', href: '/beginner/introduction' },
-      { title: 'Setting Up Your Environment', href: '/beginner/setup' },
-      { title: 'Your First C# Program', href: '/beginner/first-program' },
-    ]
+      { title: 'Getting Started', link: '/beginner/fundamentals/getting-started' },
+      { title: 'Variables and Data Types', link: '/beginner/fundamentals/variables' },
+      { title: 'Control Flow', link: '/beginner/fundamentals/control-flow' },
+      { title: 'Methods and Functions', link: '/beginner/fundamentals/methods' },
+    ],
   },
   {
-    title: 'C# Basics',
-    description: 'Master the fundamental building blocks of C# programming',
-    icon: <FiCode className="h-8 w-8 text-csharp-blue-500" />,
+    title: 'Object-Oriented Basics',
+    description: 'Understand the foundational principles of object-oriented programming in C#.',
+    icon: FiBox,
     lessons: [
-      { title: 'Variables and Data Types', href: '/beginner/data-types' },
-      { title: 'Operators', href: '/beginner/operators' },
-      { title: 'Type Conversion', href: '/beginner/type-conversion' },
-    ]
+      { title: 'Classes and Objects', link: '/beginner/oop/classes' },
+      { title: 'Properties and Fields', link: '/beginner/oop/properties' },
+      { title: 'Inheritance Basics', link: '/beginner/oop/inheritance' },
+      { title: 'Interfaces Intro', link: '/beginner/oop/interfaces' },
+    ],
   },
   {
-    title: 'Control Structures',
-    description: 'Learn to control the flow of your C# programs',
-    icon: <FiCpu className="h-8 w-8 text-csharp-blue-500" />,
+    title: 'Collections',
+    description: 'Work with various types of collections to store and manipulate data in your applications.',
+    icon: FiList,
     lessons: [
-      { title: 'If Statements', href: '/beginner/if-statements' },
-      { title: 'Switch Statements', href: '/beginner/switch' },
-      { title: 'Loops', href: '/beginner/loops' },
-    ]
+      { title: 'Arrays', link: '/beginner/collections/arrays' },
+      { title: 'Lists', link: '/beginner/collections/lists' },
+      { title: 'Dictionaries', link: '/beginner/collections/dictionaries' },
+      { title: 'Collection Methods', link: '/beginner/collections/methods' },
+    ],
   },
   {
-    title: 'Functions and Methods',
-    description: 'Organize code into reusable blocks with methods',
-    icon: <FiDatabase className="h-8 w-8 text-csharp-blue-500" />,
+    title: 'Error Handling',
+    description: 'Learn how to handle errors and exceptions in your C# programs for better stability.',
+    icon: FiGitBranch,
     lessons: [
-      { title: 'Methods Basics', href: '/beginner/methods' },
-      { title: 'Parameters and Return Values', href: '/beginner/parameters' },
-      { title: 'Method Overloading', href: '/beginner/overloading' },
-    ]
-  }
+      { title: 'Try-Catch Basics', link: '/beginner/errors/try-catch' },
+      { title: 'Exception Types', link: '/beginner/errors/exception-types' },
+      { title: 'Throwing Exceptions', link: '/beginner/errors/throwing' },
+    ],
+  },
+  {
+    title: 'File Operations',
+    description: 'Read from and write to files using C#\'s built-in file handling capabilities.',
+    icon: FiFileText,
+    lessons: [
+      { title: 'Reading Files', link: '/beginner/files/reading' },
+      { title: 'Writing Files', link: '/beginner/files/writing' },
+      { title: 'File Management', link: '/beginner/files/management' },
+    ],
+  },
+  {
+    title: 'Console Applications',
+    description: 'Build complete console applications that interact with users through the command line.',
+    icon: FiLayout,
+    lessons: [
+      { title: 'User Input', link: '/beginner/console/user-input' },
+      { title: 'Output Formatting', link: '/beginner/console/formatting' },
+      { title: 'Simple Console App', link: '/beginner/console/simple-app' },
+    ],
+  },
 ];
 
 export default function BeginnerPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-csharp-blue-600 dark:text-csharp-blue-400 mb-4">
-            Beginner C# Programming
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
-            Start your C# journey with these foundational modules designed for complete beginners
-          </p>
-        </div>
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+          Beginner C# Programming
+        </h1>
+        <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+          Start your journey with C# programming and build a solid foundation with these essential concepts.
+        </p>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {beginnerModules.map((module, index) => (
-            <div key={index} className="card hover:shadow-lg transition-shadow">
-              <div className="flex items-start">
-                <div className="mr-4 p-2 bg-csharp-blue-50 dark:bg-csharp-blue-900/20 rounded-lg">
-                  {module.icon}
-                </div>
-                <div>
-                  <h2 className="text-xl font-bold text-csharp-blue-700 dark:text-csharp-blue-400 mb-2">
-                    {module.title}
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    {module.description}
-                  </p>
-
-                  <ul className="space-y-1 mb-4">
-                    {module.lessons.map((lesson, lessonIndex) => (
-                      <li key={lessonIndex}>
-                        <Link
-                          href={lesson.href}
-                          className="text-csharp-blue-600 dark:text-csharp-blue-400 hover:underline flex items-center"
-                        >
-                          <FiArrowRight className="mr-2 h-3 w-3" />
-                          <span>{lesson.title}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <div
+              key={index}
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+            >
+              <div className="flex items-center mb-4">
+                <module.icon className="w-8 h-8 text-csharp-blue-500 mr-3" />
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                  {module.title}
+                </h2>
               </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">{module.description}</p>
+              <ul className="space-y-2">
+                {module.lessons.map((lesson, lessonIndex) => (
+                  <li key={lessonIndex}>
+                    <Link
+                      href={lesson.link}
+                      className="text-csharp-blue-500 hover:text-csharp-blue-600 dark:text-csharp-blue-400 dark:hover:text-csharp-blue-300"
+                    >
+                      {lesson.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-csharp-blue-500 to-csharp-blue-600 rounded-xl p-8 text-white text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Begin Your C# Journey?</h2>
-          <p className="mb-6">
-            Start with the Introduction to C# to learn the basics and get ready for more advanced topics.
-          </p>
+        <div className="mt-8 text-center">
           <Link
-            href="/beginner/introduction"
-            className="inline-block bg-white text-csharp-blue-600 hover:bg-gray-100 px-6 py-3 rounded-full font-bold transition-colors"
+            href="/beginner/fundamentals/getting-started"
+            className="inline-block bg-csharp-blue-500 hover:bg-csharp-blue-600 text-white font-bold py-2 px-4 rounded shadow"
           >
-            Start Learning Now
+            Start Learning
           </Link>
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 dark:text-gray-400">
-            After completing the beginner modules, you'll be ready to move on to the{' '}
-            <Link href="/intermediate" className="text-csharp-blue-600 dark:text-csharp-blue-400 hover:underline">
-              intermediate C# concepts
-            </Link>
-            .
-          </p>
         </div>
       </div>
     </div>
